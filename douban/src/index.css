@@ -1,0 +1,5 @@
+@color-background: #222;
+
+:global(body) {
+    background: @color-background;
+}
