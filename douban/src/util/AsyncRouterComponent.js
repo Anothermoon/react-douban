@@ -1,19 +1,3 @@
-# react-douban
-react／react-router／redux／axios／ material-ui
-
-#### css 模块化
-
-```
-```
-
-#### less的添加
-
-```
-```
-
-#### react-router 异步加载组件
-
-```
 import React, { Component } from 'react'
 
 function AsyncComponent (importComponent) {
@@ -43,4 +27,3 @@ function AsyncComponent (importComponent) {
 }
 
 export default AsyncComponent
-```
