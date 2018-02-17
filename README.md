@@ -4,6 +4,25 @@ react／react-router／redux／axios／ material-ui
 #### css 模块化
 
 ```
+// webpack.config.dev.js
+{
+    loader: require.resolve('css-loader'),
+    options: {
+        importLoaders: 1,
+        modules: true
+    },
+},
+
+// webpack.config.prod.js
+{
+    loader: require.resolve('css-loader'),
+    options: {
+    importLoaders: 1,
+    minimize: true,
+    sourceMap: shouldUseSourceMap,
+    modules: true
+    },
+},
 ```
 
 #### less的添加
