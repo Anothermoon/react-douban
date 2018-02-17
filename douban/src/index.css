@@ -1,5 +1,12 @@
-@color-background: #222;
-
-:global(body) {
-    background: @color-background;
+body, html {
+    line-height: 1;
+    font-family: 'PingFang SC',
+                 'STHeitiSC-Light',
+                 'Helvetica-Light',
+                 Arial,
+                 Helvetica,
+                 sans-serif,
+                 'Droid Sans Fallback';
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
