@@ -2,8 +2,16 @@ import React, { Component } from 'react'
 import { getHotMovieAjax } from './../../api/hot'
 import { connect } from 'react-redux'
 
+function mapStateToProps (state) {
+    return {
+        hotMovieList: state.hotMovieList
+    }
+}
+
+@connect(mapStateToProps)
 class Hot extends Component {
     componentWillMount () {
+        console.log(this.props)
         getHotMovieAjax()
         this.getHotMovieData()
     }
@@ -22,9 +30,4 @@ class Hot extends Component {
     }
 }
 
-function selete (state) {
-    console.log(state)
-    return state
-}
-
-export default connect(selete)(Hot)
+export default Hot
