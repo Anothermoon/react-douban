@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getHotMovieAjax } from './../../api/hot'
+import { connect } from 'react-redux'
 
 class Hot extends Component {
     componentWillMount () {
@@ -21,4 +22,9 @@ class Hot extends Component {
     }
 }
 
-export default Hot
+function selete (state) {
+    console.log(state)
+    return state
+}
+
+export default connect(selete)(Hot)

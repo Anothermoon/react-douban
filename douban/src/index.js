@@ -5,10 +5,14 @@ import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 import './public/css/reset.less'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
+import { Provider } from 'react-redux'
+import store from './store/index'
+ 
 ReactDOM.render(
     <MuiThemeProvider>
-        <App />
+        <Provider store={store}>
+            <App/>
+        </Provider>
     </MuiThemeProvider>,
     document.getElementById('root')
 )
