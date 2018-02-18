@@ -1,27 +1,45 @@
 import { HOT_MOVIE_REQUEST, HOT_MOVIE_RESPONCE, HOT_MOVIE_ERROR, HOT_MOVIE_REFRESH } from './../actions/hotActions'
 
+/**
+ * isReq 是否正在请求
+ * isOverdue 数据是否过期
+ * items 热门电影列表
+ * start 请求的起点
+ * count 请求的长度
+ * total 总长度
+ * errMsg 错误信息
+ */
 function hotMovieList (state = {
     isReq: false,
-    isOverdue: false,
+    isOverdue: true,
     items: [],
+    start: 0,
+    count: 20,
+    total: 0,
     errMsg: ''
 }, action) {
     switch (action.type) {
         case HOT_MOVIE_REQUEST:
             return {
-                ...state, isReq: true, isOverdue: false
+                ...state, isReq: true
             }
         case HOT_MOVIE_RESPONCE:
             return {
-                ...state,isReq: false, isOverdue: false, items: action.list, errMsg: ''
+                ...state,
+                ...action.res,
+                isReq: false,
+                isOverdue: false,
+                errMsg: ''
             }
         case HOT_MOVIE_ERROR:
             return {
-                ...state, errMsg: action.err
+                ...state,
+                isReq: false,
+                errMsg: action.err
             }
         case HOT_MOVIE_REFRESH:
             return {
-                ...state, isOverdue: false
+                ...state, isOverdue: true
             }
         default:
             return state

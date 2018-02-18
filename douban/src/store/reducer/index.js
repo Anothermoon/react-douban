@@ -1,8 +1,9 @@
 import hotMovieList from './hotReducer'
-import { combineReducers } from 'redux'
 
-const reducer = combineReducers({
-    hotMovieList
-})
+function reducer (state = {}, action) {
+    return {
+        hotMovieList: hotMovieList(state.hotMovieList, action)
+    }
+}
 
 export default reducer
