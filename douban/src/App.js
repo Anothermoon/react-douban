@@ -16,6 +16,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
+      // 侧边栏开关
       openDrawer: false
     }
   }
