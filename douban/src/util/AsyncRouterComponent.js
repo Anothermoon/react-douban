@@ -17,10 +17,10 @@ function AsyncComponent (importComponent) {
         }
 
         render () {
-            const component = { this.state }
+            const Com = this.state.component
 
             return (
-                component ? <component {...this.props}/> : null
+                Com ? <Com {...this.props}/> : null
             )
         }
     }

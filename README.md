@@ -182,3 +182,34 @@ function Throttle (fn, delay = 500) {
 export default Throttle
 
 ```
+
+#### 自定义Link
+
+```
+import React, { Component } from 'react'
+import { Link, Route } from 'react-router-dom'
+import style from './CustomLink.css'
+
+class CustomLink extends Component {
+    render () {
+        let { to, children, ...rest } = this.props
+        return (
+            <Route path={to} children={({ match }) => {
+                return (
+                    <div>
+                        <Link
+                            className={`${style['link']} ${match ? style['active-link'] : ''}`}
+                            to={to}
+                            {...rest}>
+                            { children }
+                        </Link>
+                    </div>
+                )
+            }} />
+        )
+    }
+}
+
+export default CustomLink
+
+```
