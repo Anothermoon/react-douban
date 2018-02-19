@@ -1,12 +1,6 @@
 .hot-wrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 64px;
-    bottom: 0;
     width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: auto;
 }
 
 .hot-content {
@@ -15,9 +9,14 @@
 }
 
 .hot-loading {
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-    margin-left: -30px !important;
-    margin-top: -30px !important;
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.3);
 }

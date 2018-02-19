@@ -15,7 +15,7 @@ class HotMovie extends Component {
                         resize={true}
                         scroll={true}
                         height={280}
-                        debounce={500}
+                        debounce={350}
                         placeholder={
                             <div style={{
                                 display: 'flex',

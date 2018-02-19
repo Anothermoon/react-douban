@@ -19,17 +19,55 @@ class Hot extends Component {
         setTimeout(() => {
             console.log(this.props)
         }, 5000)
-        this.getHotMovieData()
+        this.getHotMovieData({
+            start: 0,
+            count: 20
+        })
+        this.addEventScroll()
+    }
+
+    componentWillUnmount () {
+        this.removeEventScroll()
+    }
+
+    /**
+     * window添加scroll事件
+     */
+    addEventScroll () {
+        window.addEventListener('scroll', this.onScroll.bind(this))
+    }
+
+    /**
+     * window删除scroll事件
+     */
+    removeEventScroll () {
+        window.removeEventListener('scroll', this.onScroll.bind(this))
+    }
+
+    /**
+     * scroll事件
+     */
+    onScroll (ev) {
+        let { isReq, items, total } = this.props.hotMovieList
+        let body = document.querySelector('body')
+        let viewHeight = document.documentElement.clientHeight
+        let contentHeight = body.clientHeight
+        let scrollTop = document.documentElement.scrollTop
+        let maxScrollTop = contentHeight - viewHeight
+        if (maxScrollTop - 100 < scrollTop && !isReq && items.length < total) {
+            this.props.hotMovieRefresh()
+            this.getHotMovieData({
+                start: items.length,
+                count: 20
+            })
+        }
     }
     
     /**
      * 获取热门电影列表
      */
-    getHotMovieData = () => {
-        this.props.getHot({
-            start: 0,
-            count: 20
-        })
+    getHotMovieData = (params) => {
+        this.props.getHot(params)
     }
 
     render () {
@@ -43,7 +81,11 @@ class Hot extends Component {
                 </div>
                 {/* loading */}
                 {
-                    isReq && <CircularProgress className={style['hot-loading']} size={60} thickness={7}/>
+                    isReq && (
+                        <div className={style['hot-loading']}>
+                            <CircularProgress size={70} thickness={5}/>
+                        </div>
+                    )   
                 }
                 {/* 错误弹窗 */}
                 <Snackbar

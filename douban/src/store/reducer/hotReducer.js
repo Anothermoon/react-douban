@@ -24,13 +24,16 @@ function hotMovieList (state = {
                 ...state, isReq: true
             }
         case HOT_MOVIE_RESPONCE:
-            return {
-                ...state,
-                ...action.res,
+            let { count, start, total, items } = action.res
+            return Object.assign({}, state, {
                 isReq: false,
                 isOverdue: false,
-                errMsg: ''
-            }
+                errMsg: '',
+                count,
+                start,
+                total,
+                items: [...state.items, ...items]
+            })
         case HOT_MOVIE_ERROR:
             return {
                 ...state,

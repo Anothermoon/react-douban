@@ -21,6 +21,12 @@ class DbHeader extends Component {
             <AppBar
                 title={title}
                 onLeftIconButtonClick={this.handleLeftIconClick}
+                style={{
+                    position: 'fixed',
+                    left: 0,
+                    top: 0,
+                    zIndex: 999
+                }}
             />
         )
     }
