@@ -11,7 +11,11 @@ class HotMovie extends Component {
             <li className={style['item']}>
                 <div>
                     <LazyLoad
+                        once
+                        resize={true}
+                        scroll={true}
                         height={280}
+                        debounce={500}
                         placeholder={
                             <div style={{
                                 display: 'flex',
@@ -29,8 +33,9 @@ class HotMovie extends Component {
                 </div>
                 <div className={style['text-wrapper']}>
                     <p className={style['text']}>{title}</p>
-                    <p className={style['text']}>{year}</p>
+                    <p className={style['text']}>年代：{year}</p>
                     <p className={style['text']}>
+                        主演：
                         {
                             casts.map((item, index) => {
                                 if (index < casts.length - 1) {
