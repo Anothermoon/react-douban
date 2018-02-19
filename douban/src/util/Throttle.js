@@ -6,10 +6,13 @@ function Throttle (fn, delay = 500) {
     return function (...rest) {
         if (!isFirst) {
             self(...rest)
+            return isFirst = true
         }
 
+        console.log(timer)
+
         if (timer) {
-            return
+            return false
         }
 
         timer = setTimeout(() => {
