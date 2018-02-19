@@ -1,8 +1,14 @@
 # react-douban
 react／react-router／redux／axios／ material-ui
 
+#### 登陆注册功能
 
-## create-react-app 中使用字体图标
+> 使用了策略模式进行表单验证，避免了大量的if else 语句
+
+```
+```
+
+#### create-react-app 中使用字体图标
 
 ```
 // 注意字体文件的路径，不能直接使用./../xxx 需要 ../../xxx，具体原因我不太明白
