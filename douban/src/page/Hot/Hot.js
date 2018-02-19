@@ -7,7 +7,6 @@ import style from './Hot.css'
 import HotMovieList from './../../component/HotMovieList/HotMovieList'
 
 function mapStateToProps (state) {
-    console.log(state.hotMovieList)
     return {
         hotMovieList: state.hotMovieList
     }
@@ -17,6 +16,9 @@ function mapStateToProps (state) {
 class Hot extends Component {
     
     componentWillMount () {
+        setTimeout(() => {
+            console.log(this.props)
+        }, 5000)
         this.getHotMovieData()
     }
     
@@ -31,16 +33,19 @@ class Hot extends Component {
     }
 
     render () {
-        const { isReq, errMsg } = this.props.hotMovieList
+        const { isReq, errMsg, items } = this.props.hotMovieList
         return (
             <section className={style['hot-wrapper']}>
                 <div className={style['hot-content']}>
-                    <HotMovieList/>
+                    <HotMovieList
+                        hotMovieList={items}
+                    />
                 </div>
-                { 
+                {/* loading */}
+                {
                     isReq && <CircularProgress className={style['hot-loading']} size={60} thickness={7}/>
                 }
-
+                {/* 错误弹窗 */}
                 <Snackbar
                     open={errMsg !== ''}
                     message={errMsg}
