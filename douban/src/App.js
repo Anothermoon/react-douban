@@ -11,6 +11,7 @@ const AsyncComing = AsyncRouterComponent(() => import('./page/Coming/Coming'))
 const AsyncNewMovie = AsyncRouterComponent(() => import('./page/NewMovie/NewMovie'))
 const AsyncTop250 = AsyncRouterComponent(() => import('./page/Top250/Top250'))
 const AsyncPublicPraise = AsyncRouterComponent(() => import('./page/PublicPraise/PublicPraise'))
+const AsyncSearch = AsyncRouterComponent(() => import('./page/Search/Search'))
 
 class App extends Component {
   constructor () {
@@ -60,6 +61,7 @@ class App extends Component {
                 <Route path="/publicpraise" component={AsyncPublicPraise}/>
                 <Route path="/america" component={AsyncAmerica}/>
                 <Route path="/newmovie" component={AsyncNewMovie}/>
+                <Route path="/search" component={AsyncSearch}/>
             </div>
           </div>
         </Router>

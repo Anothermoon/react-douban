@@ -62,6 +62,13 @@ class DbDrawer extends Component {
                         新片榜
                     </CustomLink>
                 </MenuItem>
+                <MenuItem>
+                    <CustomLink
+                        onLinkClick={this.handleLinkClik}
+                        to="/search">
+                        搜索
+                    </CustomLink>
+                </MenuItem>
             </Drawer>
         )
     }
