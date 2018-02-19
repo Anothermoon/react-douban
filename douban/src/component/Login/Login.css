@@ -1,0 +1,10 @@
+.login-wrapper {
+    width: 100%;
+    height: auto;
+    padding: 0 15px;
+    box-sizing: border-box
+}
+
+.login-btn {
+    margin-top: 20px;
+}

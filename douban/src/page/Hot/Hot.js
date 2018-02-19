@@ -16,6 +16,7 @@ function mapStateToProps (state) {
 class Hot extends Component {
     
     componentWillMount () {
+        console.log(this.props)
         // 需要删除
         setTimeout(() => {
             console.log(this.props)

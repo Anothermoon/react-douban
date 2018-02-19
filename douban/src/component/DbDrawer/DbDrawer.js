@@ -69,6 +69,13 @@ class DbDrawer extends Component {
                         搜索
                     </CustomLink>
                 </MenuItem>
+                <MenuItem>
+                    <CustomLink
+                        onLinkClick={this.handleLinkClik}
+                        to="/loginregister">
+                        登陆注册
+                    </CustomLink>
+                </MenuItem>
             </Drawer>
         )
     }
