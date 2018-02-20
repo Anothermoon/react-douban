@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { GridList } from 'material-ui/GridList'
 import HotMove from './../HotMove/HotMove'
 import style from './../HotMovieList/HotMovieList.css'
 

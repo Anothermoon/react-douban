@@ -5,7 +5,6 @@ import SearchInput from './../../component/SearchInput/SearchInput'
 import SearchList from './../../component/SearchList/SearchList'
 import { connect } from 'react-redux'
 import * as searchActions from './../../store/actions/searchActions'
-import CircularProgress from 'material-ui/CircularProgress'
 import Throttle from './../../util/Throttle'
 
 function mapStateToProps (state) {
@@ -68,7 +67,7 @@ class Search extends Component {
     
     render () {
         const { value } = this.state
-        const { items, isReq, errMsg, isAll } = this.props.searchResultsList
+        const { items, errMsg, isAll } = this.props.searchResultsList
         return (
             <section className={style['search-wrapper']}>
                 <SearchInput

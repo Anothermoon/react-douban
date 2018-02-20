@@ -1,4 +1,4 @@
-import { SEARCH_REQUEST, SEARCH_RESPONCE, SEARCH_ERROR, SEARCH_CLOSE } from './../actions/searchActions'
+import { SEARCH_REQUEST, SEARCH_RESPONCE, SEARCH_ERROR } from './../actions/searchActions'
 
 /**
  * isReq 是否正在请求

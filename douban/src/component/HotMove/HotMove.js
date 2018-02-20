@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { GridTile } from 'material-ui/GridList'
 import style from './HotMove.css'
 import LazyLoad from 'react-lazyload'
 import CircularProgress from 'material-ui/CircularProgress'
@@ -28,7 +27,7 @@ class HotMovie extends Component {
                             </div>
                         }
                     >
-                        <img width="170" height="238" src={images.medium}/>
+                        <img width="170" height="238" src={images.medium} alt=""/>
                     </LazyLoad>
                 </div>
                 <div className={style['text-wrapper']}>
