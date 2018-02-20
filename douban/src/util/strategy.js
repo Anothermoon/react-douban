@@ -29,7 +29,7 @@ const formStrategy = {
      * @param {String} err 错误信息
      */
     passwordNotRepeat (val, err) {
-        if (val[0] !== val[1]) {
+        if (val[0] !== val[1] || val[0] === '' || val[1] === '') {
             return err
         }
     }

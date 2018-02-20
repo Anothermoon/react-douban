@@ -15,19 +15,38 @@ class Login extends Component {
         }
     }
 
+    /**
+     * 验证用户名输入框
+     */
+    validationUser = (value) => {
+        let validation = new Validation()
+        validation.addRule(value, [{
+            strategy: 'notNull',
+            errMsg: '用户名不能为空'
+        }])
+        let msg = validation.startValidation()
+        msg ? this.setState({userError: msg}) : this.setState({userError: ''})
+    }
+
+    /**
+     * 验证密码输入框
+     */
+    validationPassword = (value) => {
+        let validation = new Validation()
+        validation.addRule(value, [{
+            strategy: 'notNull',
+            errMsg: '密码不能为空'
+        }])
+        let msg = validation.startValidation()
+        msg ? this.setState({passwordError: msg}) : this.setState({passwordError: ''})
+    }
+
     handleUserChange = (event, newValue) => {
         this.setState({
             user: newValue
         }, () => {
             let { user } = this.state
-            let validation = new Validation()
-            // 添加验证规则
-            validation.addRule(user, [{
-                strategy: 'notNull',
-                errMsg: '用户名不能为空'
-            }])
-            let msg = validation.startValidation()
-            msg ? this.setState({userError: msg}) : this.setState({userError: ''})
+            this.validationUser(user)
         })
     }
 
@@ -36,15 +55,19 @@ class Login extends Component {
             password: newValue
         }, () => {
             let { password } = this.state
-            let validation = new Validation()
-            // 添加验证规则
-            validation.addRule(password, [{
-                strategy: 'notNull',
-                errMsg: '密码不能为空'
-            }])
-            let msg = validation.startValidation()
-            msg ? this.setState({passwordError: msg}) : this.setState({passwordError: ''})
+            this.validationPassword(password)
         })
+    }
+
+    handleLoginBtnClick = () => {
+        const { user, password } = this.state
+        let msg = this.validationUser(user)
+        msg = this.validationPassword(password)
+        if (msg) {
+            return false
+        } else {
+            // 登陆
+        }
     }
 
     render () {
@@ -71,7 +94,11 @@ class Login extends Component {
                     />
                 </div>
                 <div className={style['login-btn']}>
-                    <RaisedButton label="登陆" primary={true} fullWidth={true} />
+                    <RaisedButton
+                        onClick={this.handleLoginBtnClick}
+                        label="登陆"
+                        primary={true}
+                        fullWidth={true} />
                 </div>
             </div>
         )

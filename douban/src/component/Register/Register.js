@@ -97,7 +97,7 @@ class Register extends Component {
         if (msg) {
             return false
         } else {
-            // ...登陆
+            // ...注册
         }
     }
 
