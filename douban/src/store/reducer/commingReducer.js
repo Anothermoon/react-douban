@@ -1,4 +1,9 @@
-import { HOT_MOVIE_REQUEST, HOT_MOVIE_RESPONCE, HOT_MOVIE_ERROR, HOT_MOVIE_REFRESH } from './../actions/hotActions'
+import {
+    COMMING_MOVIE_REQUEST,
+    COMMING_MOVIE_RESPONCE,
+    COMMING_MOVIE_ERROR,
+    COMMING_MOVIE_REFRESH
+} from './../actions/commingActions'
 
 /**
  * isReq 是否正在请求
@@ -9,7 +14,7 @@ import { HOT_MOVIE_REQUEST, HOT_MOVIE_RESPONCE, HOT_MOVIE_ERROR, HOT_MOVIE_REFRE
  * total 总长度
  * errMsg 错误信息
  */
-function hotMovieList (state = {
+function commingMovieList (state = {
     isReq: false,
     isOverdue: true,
     items: [],
@@ -18,12 +23,13 @@ function hotMovieList (state = {
     total: 0,
     errMsg: ''
 }, action) {
-    switch (action.type) {
-        case HOT_MOVIE_REQUEST:
+    switch(action.type) {
+        case COMMING_MOVIE_REQUEST:
             return {
-                ...state, isReq: true
+                ...state,
+                isReq: true
             }
-        case HOT_MOVIE_RESPONCE:
+        case COMMING_MOVIE_RESPONCE:
             let { count, start, total, items } = action.res
             return Object.assign({}, state, {
                 isReq: false,
@@ -34,19 +40,20 @@ function hotMovieList (state = {
                 total,
                 items: [...state.items, ...items]
             })
-        case HOT_MOVIE_ERROR:
+        case COMMING_MOVIE_ERROR:
             return {
                 ...state,
                 isReq: false,
                 errMsg: action.err
             }
-        case HOT_MOVIE_REFRESH:
+        case COMMING_MOVIE_REFRESH:
             return {
-                ...state, isOverdue: true
+                ...state,
+                isOverdue: true
             }
         default:
             return state
     }
 }
 
-export default hotMovieList
+export default commingMovieList
