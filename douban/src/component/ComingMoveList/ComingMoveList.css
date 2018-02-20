@@ -1,0 +1,12 @@
+.coming-move-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    list-style: none;
+    padding: 0 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}

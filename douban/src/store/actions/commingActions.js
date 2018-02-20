@@ -8,8 +8,8 @@ export const COMMING_MOVIE_ERROR = 'COMMING_MOVIE_ERROR'
 export const COMMING_MOVIE_REFRESH = 'COMMING_MOVIE_REFRESH'
 
 export const commingMovieRequest = makeActionCreator(COMMING_MOVIE_REQUEST)
-export const commingMovieResponce = makeActionCreator(COMMING_MOVIE_RESPONCE)
-export const commingMovieError = makeActionCreator(COMMING_MOVIE_ERROR)
+export const commingMovieResponce = makeActionCreator(COMMING_MOVIE_RESPONCE, 'res')
+export const commingMovieError = makeActionCreator(COMMING_MOVIE_ERROR, 'err')
 export const commingMovieRefresh = makeActionCreator(COMMING_MOVIE_REFRESH)
 
 function cacheCommingMovie (state) {
@@ -29,7 +29,24 @@ export function getComming (params) {
             dispatch(commingMovieRequest())
             return getCommingMovieAja(params).then(res => {
                 console.log(res)
-                // dispatch(commingMovieResponce())
+                const { count, start, subjects, total } = res
+                let items = subjects.map(item => new HotMovie({
+                    id: item.id,
+                    rating: item.rating,
+                    genres: item.genres,
+                    casts: item.casts,
+                    images: item.images,
+                    original_title: item.original_title,
+                    subtype: item.subtype,
+                    title: item.title,
+                    year: item.year
+                }))
+                dispatch(commingMovieResponce({
+                    count,
+                    start,
+                    total,
+                    items
+                }))
             }).catch(err => {
                 dispatch(commingMovieError())
             })

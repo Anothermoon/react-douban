@@ -1,0 +1,23 @@
+.coming-wrapper {
+    width: 100%;
+    height: auto;
+    padding-top: 64px;
+}
+
+.coming-content {
+    width: 100%;
+    height: auto;
+}
+
+.comming-loading {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.3);
+}
