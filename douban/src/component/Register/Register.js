@@ -17,18 +17,57 @@ class Register extends Component {
         }
     }
 
+    /**
+     * 验证用户名输入框
+     */
+    validationUser = (value) => {
+        let validation = new Validation()
+        validation.addRule(value, [{
+            strategy: 'notNull',
+            errMsg: '用户名不能为空'
+        }])
+        let msg = validation.startValidation()
+        msg ? this.setState({userError: msg}) : this.setState({userError: ''})
+        return msg
+    }
+
+    /**
+     * 验证密码输入框
+     */
+    validationPassword = (value) => {
+        let validation = new Validation()
+        validation.addRule(value, [{
+            strategy: 'notNull',
+            errMsg: '密码不能为空'
+        }, {
+            strategy: 'password',
+            errMsg: '以字母开头，长度在6~18之间，只能包含字母、数字和下划线'
+        }])
+        let msg = validation.startValidation()
+        msg ? this.setState({passwordError: msg}) : this.setState({passwordError: ''})
+        return msg
+    }
+
+    /**
+     * 验证密码重复输入框
+     */
+    validationRepeatPassword = (value) => {
+        let validation = new Validation()
+        validation.addRule(value, [{
+            strategy: 'passwordNotRepeat',
+            errMsg: '两次密码不一致'
+        }])
+        let msg = validation.startValidation()
+        msg ? this.setState({repeatPasswordError: msg}) : this.setState({repeatPasswordError: ''})
+        return msg
+    }
+
     handleUserChange = (event, newValue) => {
         this.setState({
             user: newValue
         }, () => {
             let { user } = this.state
-            let validation = new Validation()
-            validation.addRule(user, [{
-                strategy: 'notNull',
-                errMsg: '用户名不能为空'
-            }])
-            let msg = validation.startValidation()
-            msg ? this.setState({userError: msg}) : this.setState({userError: ''})
+            this.validationUser(user)
         })
     }
 
@@ -37,16 +76,7 @@ class Register extends Component {
             password: newValue
         }, () => {
             let { password } = this.state
-            let validation = new Validation()
-            validation.addRule(password, [{
-                strategy: 'notNull',
-                errMsg: '密码不能为空'
-            }, {
-                strategy: 'password',
-                errMsg: '以字母开头，长度在6~18之间，只能包含字母、数字和下划线'
-            }])
-            let msg = validation.startValidation()
-            msg ? this.setState({passwordError: msg}) : this.setState({passwordError: ''})
+            this.validationPassword(password)
         })
     }
 
@@ -55,14 +85,20 @@ class Register extends Component {
             repeatPassword: newValue
         }, () => {
             let { password, repeatPassword } = this.state
-            let validation = new Validation()
-            validation.addRule([password, repeatPassword], [{
-                strategy: 'passwordNotRepeat',
-                errMsg: '两次密码不一致'
-            }])
-            let msg = validation.startValidation()
-            msg ? this.setState({repeatPasswordError: msg}) : this.setState({repeatPasswordError: ''})
+            this.validationRepeatPassword([password, repeatPassword])
         })
+    }
+
+    handleRegisterBtnClick = () => {
+        const { user, password, repeatPassword } = this.state
+        let msg = this.validationUser(user)
+        msg = this.validationPassword(password)
+        msg = this.validationRepeatPassword([password, repeatPassword])
+        if (msg) {
+            return false
+        } else {
+            // ...登陆
+        }
     }
 
     render () {
@@ -98,7 +134,12 @@ class Register extends Component {
                     />
                 </div>
                 <div className={style['register-btn']}>
-                    <RaisedButton label="注册" primary={true} fullWidth={true} />
+                    <RaisedButton
+                        label="注册"
+                        primary={true}
+                        fullWidth={true}
+                        onClick={this.handleRegisterBtnClick}
+                    />
                 </div>
             </div>
         )
