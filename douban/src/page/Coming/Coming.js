@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as commingActions from './../../store/actions/commingActions'
 import CircularProgress from 'material-ui/CircularProgress'
 import ComingMovieList from './../../component/ComingMovieList/ComingMovieList'
-import style from './Comming.css'
+import style from './Coming.css'
 
 function mapStateToProps (state) {
     return {
