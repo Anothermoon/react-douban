@@ -9,8 +9,6 @@ function Throttle (fn, delay = 500) {
             return isFirst = true
         }
 
-        console.log(timer)
-
         if (timer) {
             return false
         }

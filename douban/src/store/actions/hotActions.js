@@ -30,7 +30,6 @@ export function getHot (params) {
         if (cacheHotMovie(getState())) {
             dispatch(hotMovieRequest())
             return getHotMovieAjax(params).then(res => {
-                console.log(res)
                 let { count, start, total, subjects } = res
                 let items = subjects.map(item => new HotMovie({
                     id: item.id,

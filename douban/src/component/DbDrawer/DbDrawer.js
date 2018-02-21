@@ -38,14 +38,7 @@ class DbDrawer extends Component {
                     <CustomLink
                         onLinkClick={this.handleLinkClik}
                         to="/top250">
-                        TOP250
-                    </CustomLink>
-                </MenuItem>
-                <MenuItem>
-                    <CustomLink
-                        onLinkClick={this.handleLinkClik}
-                        to="/publicpraise">
-                        口碑榜
+                        豆瓣TOP250
                     </CustomLink>
                 </MenuItem>
                 <MenuItem>
@@ -58,10 +51,28 @@ class DbDrawer extends Component {
                 <MenuItem>
                     <CustomLink
                         onLinkClick={this.handleLinkClik}
-                        to="/newmovie">
-                        新片榜
+                        to="/conditions">
+                        选电影
                     </CustomLink>
                 </MenuItem>
+                {/*
+                <MenuItem>
+                    <CustomLink
+                        onLinkClick={this.handleLinkClik}
+                        to="/publicpraise">
+                        口碑榜
+                    </CustomLink>
+                </MenuItem>
+                */}
+                {/*
+                    <MenuItem>
+                        <CustomLink
+                            onLinkClick={this.handleLinkClik}
+                            to="/newmovie">
+                            新片榜
+                        </CustomLink>
+                    </MenuItem>
+                */}
                 <MenuItem>
                     <CustomLink
                         onLinkClick={this.handleLinkClik}

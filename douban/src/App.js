@@ -13,6 +13,9 @@ const AsyncTop250 = AsyncRouterComponent(() => import('./page/Top250/Top250'))
 const AsyncPublicPraise = AsyncRouterComponent(() => import('./page/PublicPraise/PublicPraise'))
 const AsyncSearch = AsyncRouterComponent(() => import('./page/Search/Search'))
 const AsyncLoginRegister = AsyncRouterComponent(() => import('./page/LoginRegister/LoginRegister'))
+const AsyncFilmmaker = AsyncRouterComponent(() => import('./page/Filmmaker/Filmmaker'))
+const AsyncMovieDetailed = AsyncRouterComponent(() => import('./page/MovieDetailed/MovieDetailed'))
+const AsyncConditionsSearch = AsyncRouterComponent(() => import('./page/ConditionsSearch/ConditionsSearch'))
 
 class App extends Component {
   constructor () {
@@ -64,6 +67,9 @@ class App extends Component {
                 <Route path="/newmovie" component={AsyncNewMovie}/>
                 <Route path="/search" component={AsyncSearch}/>
                 <Route path="/loginregister" component={AsyncLoginRegister}/>
+                <Route path="/filmmaker/:id" component={AsyncFilmmaker}/>
+                <Route path="/movie/:id" component={AsyncMovieDetailed}/>
+                <Route path="/conditions" component={AsyncConditionsSearch}/>
             </div>
           </div>
         </Router>
