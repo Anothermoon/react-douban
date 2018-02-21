@@ -4,7 +4,7 @@ import Snackbar from 'material-ui/Snackbar'
 import { connect } from 'react-redux'
 import style from './America.css'
 import * as americaActions from './../../store/actions/americaActions'
-import { List, ListItem } from 'material-ui/List'
+import AmericaBoxList from './../../component/AmericaBoxList/AmericaBoxList'
 
 function mapStateToProps (state) {
     return {
@@ -32,7 +32,8 @@ class America extends Component {
         console.log(items)
         return (
             <section className={style['america-wrapper']}>
-                <div className={style['america-content']}>    
+                <div className={style['america-content']}>
+                    <AmericaBoxList list={items}/>   
                 </div>
                 {/* loading */}
                 {

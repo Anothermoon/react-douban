@@ -25,7 +25,7 @@ class Scroll extends Component {
         let scrollTop = document.documentElement.scrollTop
         let maxScrollTop = contentHeight - viewHeight
         if (maxScrollTop - 100 < scrollTop && !isReq && items.length < total) {
-            this.props.refresh()
+            refresh()
             getData({
                 start: items.length,
                 count: 20
