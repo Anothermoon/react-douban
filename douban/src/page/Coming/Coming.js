@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as commingActions from './../../store/actions/commingActions'
+import * as commingActions from './../../store/actions/comingActions'
 import CircularProgress from 'material-ui/CircularProgress'
 import ComingMovieList from './../../component/ComingMovieList/ComingMovieList'
 import style from './Coming.css'
 
 function mapStateToProps (state) {
     return {
-        commingMovieList: state.commingMovieList
+        comingMovieList: state.comingMovieList
     }
 }
 
@@ -27,16 +27,17 @@ class Coming extends Component {
     }
 
     render () {
-        const { isReq, items } = this.props.commingMovieList
+        const { isReq, items } = this.props.comingMovieList
         return (
             <section className={style['coming-wrapper']}>
                 <div className={style['coming-content']}>
                     <ComingMovieList ComingMovieList={items} />
                 </div>
+                {/**/}
                 {/* loading */}
                 {
                     isReq && (
-                        <div className={style['comming-loading']}>
+                        <div className={style['coming-loading']}>
                             <CircularProgress size={70} thickness={5}/>
                         </div>
                     )

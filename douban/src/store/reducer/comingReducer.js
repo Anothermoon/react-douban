@@ -3,7 +3,7 @@ import {
     COMMING_MOVIE_RESPONCE,
     COMMING_MOVIE_ERROR,
     COMMING_MOVIE_REFRESH
-} from './../actions/commingActions'
+} from './../actions/comingActions'
 
 /**
  * isReq 是否正在请求

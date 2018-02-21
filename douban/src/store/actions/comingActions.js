@@ -1,5 +1,5 @@
 import makeActionCreator from './../../util/ActionCreators'
-import { getComingMovieAjax } from './../../api/comming'
+import { getComingMovieAjax } from './../../api/coming'
 import HotMovie from './../../model/HotMovie'
 
 export const COMMING_MOVIE_REQUEST = 'COMMING_MOVIE_REQUEST'
