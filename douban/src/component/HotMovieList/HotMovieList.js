@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import HotMove from './../HotMove/HotMove'
+import HotMovie from './../HotMovie/HotMovie'
 import style from './../HotMovieList/HotMovieList.css'
 
 
@@ -11,7 +11,7 @@ class HotMovieList extends Component {
                 {
                     hotMovieList.map(item => {
                         return (
-                            <HotMove
+                            <HotMovie
                                 key={item.id}
                                 {...item}
                             />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import style from './HotMove.css'
+import style from './HotMovie.css'
 import LazyLoad from 'react-lazyload'
 import CircularProgress from 'material-ui/CircularProgress'
 
