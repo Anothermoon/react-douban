@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import style from './Comming.css'
 import { connect } from 'react-redux'
 import * as commingActions from './../../store/actions/commingActions'
 import CircularProgress from 'material-ui/CircularProgress'
-import ComingMoveList from './../../component/ComingMoveList/ComingMoveList'
+import ComingMovieList from './../../component/ComingMovieList/ComingMovieList'
+import style from './Comming.css'
 
 function mapStateToProps (state) {
     return {
@@ -31,7 +31,7 @@ class Coming extends Component {
         return (
             <section className={style['coming-wrapper']}>
                 <div className={style['coming-content']}>
-                    <ComingMoveList comingMoveList={items} />
+                    <ComingMovieList ComingMovieList={items} />
                 </div>
                 {/* loading */}
                 {
