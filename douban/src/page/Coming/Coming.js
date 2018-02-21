@@ -35,7 +35,6 @@ class Coming extends Component {
                 <section className={style['coming-wrapper']}>
                     <div className={style['coming-content']}>
                         <MoveList
-                            rank={true}
                             list={items}
                         />
                     </div>

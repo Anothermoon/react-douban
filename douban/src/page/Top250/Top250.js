@@ -37,6 +37,7 @@ class Top250 extends Component {
                     <div className={style['top250-content']}>
                         <MoveList
                             list={items}
+                            rank={true}
                         />
                     </div>
                     {/* loading */}

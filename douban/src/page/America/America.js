@@ -29,7 +29,6 @@ class America extends Component {
 
     render () {
         const { isReq, errMsg, items } = this.props.americaList
-        console.log(items)
         return (
             <section className={style['america-wrapper']}>
                 <div className={style['america-content']}>
