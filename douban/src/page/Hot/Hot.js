@@ -48,7 +48,6 @@ class Hot extends Component {
      * scroll事件
      */
     onScroll (ev) {
-        console.log('???')
         let { isReq, items, total } = this.props.hotMovieList
         let body = document.querySelector('body')
         let viewHeight = document.documentElement.clientHeight

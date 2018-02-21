@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ComingMovie from './../ComingMovie/ComingMovie'
 import style from './ComingMovieList.css'
+import HotMovie from './../HotMovie/HotMovie'
 
 class ComingMovieList extends Component {
     render () {
@@ -10,7 +10,7 @@ class ComingMovieList extends Component {
                  {
                      ComingMovieList.map(item => {
                          return (
-                             <ComingMovie
+                             <HotMovie
                                 key={item.id}
                                 {...item}
                              />

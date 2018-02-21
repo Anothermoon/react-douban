@@ -13,7 +13,7 @@ export const commingMovieError = makeActionCreator(COMMING_MOVIE_ERROR, 'err')
 export const commingMovieRefresh = makeActionCreator(COMMING_MOVIE_REFRESH)
 
 function cacheCommingMovie (state) {
-    const commingMovie = state['commingMovieList']
+    const commingMovie = state['comingMovieList']
     if (!commingMovie) {
         return true
     } else if (commingMovie.isReq) {
@@ -28,7 +28,6 @@ export function getComming (params) {
         if (cacheCommingMovie(getState())) {
             dispatch(commingMovieRequest())
             return getComingMovieAjax(params).then(res => {
-                console.log(res)
                 const { count, start, subjects, total } = res
                 let items = subjects.map(item => new HotMovie({
                     id: item.id,
