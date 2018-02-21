@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Snackbar from 'material-ui/Snackbar'
 import CircularProgress from 'material-ui/CircularProgress'
 import Scroll from './../../base/Scroll/Scroll'
-import Top250List from './../../component/Top250List/Top250List'
+import MoveList from './../../component/MoveList/MoveList'
 import * as top250Actions from './../../store/actions/top250Actions'
 import style from './Top250.css'
 
@@ -15,7 +15,7 @@ function mapStateToProps (state) {
 
 @connect(mapStateToProps, top250Actions)
 class Top250 extends Component {
-    
+
     getTop250Data = (params) => {
         this.props.getTop250(params)
     }
@@ -32,8 +32,8 @@ class Top250 extends Component {
             >
                 <section className={style['top250-wrapper']}>
                     <div className={style['top250-content']}>
-                        <Top250List
-                            top250List={items}
+                        <MoveList
+                            list={items}
                         />
                     </div>
                     {/* loading */}
