@@ -14,18 +14,16 @@ function mapStateToProps (state) {
 
 @connect(mapStateToProps, hotActions)
 class Hot extends Component {
+
+    constructor (props) {
+        super(props)
+        this.scroll = this.onScroll.bind(this) 
+    }
     
     componentWillMount () {
-        console.log(this.props)
-        // 需要删除
-        setTimeout(() => {
-            console.log(this.props)
-        }, 5000)
-        this.getHotMovieData({
-            start: 0,
-            count: 20
-        })
+        this.getHotMovieData()
         this.addEventScroll()
+        window.scrollTo(0, 0)
     }
 
     componentWillUnmount () {
@@ -36,20 +34,22 @@ class Hot extends Component {
      * window添加scroll事件
      */
     addEventScroll () {
-        window.addEventListener('scroll', this.onScroll.bind(this))
+        window.addEventListener('scroll', this.scroll)
     }
 
     /**
      * window删除scroll事件
      */
     removeEventScroll () {
-        window.removeEventListener('scroll', this.onScroll.bind(this))
+        console.log(1)
+        window.removeEventListener('scroll', this.scroll)
     }
 
     /**
      * scroll事件
      */
     onScroll (ev) {
+        console.log('???')
         let { isReq, items, total } = this.props.hotMovieList
         let body = document.querySelector('body')
         let viewHeight = document.documentElement.clientHeight

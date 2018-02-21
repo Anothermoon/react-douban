@@ -5,7 +5,7 @@ import style from './ComingMove.css'
 class ComingMove extends Component {
     render () {
         const { title, genres, images, year, casts } = this.props
-        
+        console.log(casts)
         return (
             <li className={style['coming-move']}>
                 <Card>

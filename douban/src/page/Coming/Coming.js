@@ -16,7 +16,7 @@ class Coming extends Component {
 
     componentWillMount () {
         this.getCommingMovieData()
-        console.log(this.props)
+        window.scrollTo(0, 0)
     }
 
     /**
@@ -28,7 +28,6 @@ class Coming extends Component {
 
     render () {
         const { isReq, items } = this.props.commingMovieList
-        
         return (
             <section className={style['coming-wrapper']}>
                 <div className={style['coming-content']}>
