@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card'
-import style from './ComingMove.css'
+import { Card, CardHeader, CardMedia, CardTitle } from 'material-ui/Card'
+import style from './ComingMovie.css'
 
-class ComingMove extends Component {
+class ComingMovie extends Component {
     render () {
         const { title, genres, images, year, casts } = this.props
         console.log(casts)
@@ -25,4 +25,4 @@ class ComingMove extends Component {
     }
 }
 
-export default ComingMove
+export default ComingMovie

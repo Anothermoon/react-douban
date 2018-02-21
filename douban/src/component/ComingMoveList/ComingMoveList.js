@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import ComingMove from './../ComingMove/ComingMove'
+import ComingMovie from './../ComingMovie/ComingMovie'
 import style from './ComingMoveList.css'
 
 class ComingMoveList extends Component {
     render () {
         const { comingMoveList } = this.props
         return (
-            <ul className={style['coming-move-list']}>
+            <ul className={style['coming-movie-list']}>
                  {
                      comingMoveList.map(item => {
                          return (
-                             <ComingMove
+                             <ComingMovie
                                 key={item.id}
                                 {...item}
                              />
