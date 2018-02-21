@@ -10,20 +10,32 @@ export const americaRequest = makeActionCreator(AMERICA_REQUEST)
 export const americaResponce = makeActionCreator(AMERICA_RESPONCE, 'res')
 export const americaError = makeActionCreator(AMERICA_ERROR, 'err')
 
+function cacheAmerica (state) {
+    const americaList = state['americaList']
+    if (americaList.items.length) {
+        return false
+    }
+    return true
+}
+
 export function getAmerica () {
     return (dispatch, getState) => {
-        dispatch(americaRequest())
-        return getAmericaAjax().then(res => {
-            let { date, subjects } = res
-            let items = subjects.map(item => {
-                return new Rank(item.box, item.subject)
+        if (cacheAmerica(getState())) {
+            dispatch(americaRequest())
+            return getAmericaAjax().then(res => {
+                let { date, subjects } = res
+                let items = subjects.map(item => {
+                    return new Rank(item.box, item.subject)
+                })
+                dispatch(americaResponce({
+                    date,
+                    items
+                }))
+            }).catch(err => {
+                dispatch(americaError())
             })
-            dispatch(americaResponce({
-                date,
-                items
-            }))
-        }).catch(err => {
-            dispatch(americaError())
-        })
+        } else {
+            return Promise.resolve()
+        }
     }
 }
