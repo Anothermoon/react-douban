@@ -41,7 +41,6 @@ class Hot extends Component {
      * window删除scroll事件
      */
     removeEventScroll () {
-        console.log(1)
         window.removeEventListener('scroll', this.scroll)
     }
 

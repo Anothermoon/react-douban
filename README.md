@@ -6,6 +6,105 @@ react／react-router／redux／axios／ material-ui
 > 使用了策略模式进行表单验证，避免了大量的if else 语句
 
 ```
+// 策略类
+// 策略类(验证规则)
+const formStrategy = {
+    /**
+     * 不为空
+     * @param {String} val 内容
+     * @param {String} err 错误信息
+     */
+    notNull (val, err) {
+        let newVal = val.replace(/(^\s+)|(\s+$)/g, "")
+        if (newVal === '') {
+            return err
+        }
+    },
+
+    /**
+     * 密码验证
+     * @param {Stirng} val 内容
+     * @param {String} err 错误信息
+     */
+    password (val, err) {
+        if (!/^[a-zA-Z]\w{5,17}$/.test(val)) {
+            return err
+        }
+    },
+
+    /**
+     * 密码不能重复
+     * @param {Array} val 前一次输入的密码以及后一次输入的密码
+     * @param {String} err 错误信息
+     */
+    passwordNotRepeat (val, err) {
+        if (val[0] !== val[1] || val[0] === '' || val[1] === '') {
+            return err
+        }
+    }
+}
+
+export default formStrategy
+
+// 验证类
+import formStrategy from './strategy'
+
+// 验证类
+class Validation {
+    constructor () {
+        // 验证规则的集合
+        this.rule = []
+    }
+
+    /**
+     * 添加验证规则
+     * @param {String} value 验证的内容 
+     * @param {Array} rule 验证内容的规则 
+     */
+    addRule (value, rule) {
+        rule.forEach(ruleItem => {
+            this.rule.push(() => {
+                let { strategy, errMsg } = ruleItem
+                return formStrategy[strategy](value, errMsg)
+            })
+        })
+    }
+
+    /**
+     * 开始验证 
+     */
+    startValidation () {
+        for (let i = 0; i < this.rule.length; i++) {
+            let msg = this.rule[i]()
+            if (msg) {
+                return msg
+            }
+        }
+    }
+}
+
+export default Validation
+```
+
+#### bind是使用apply返回的新的匿名函数，注意使用addEventlistener时候，匿名函数是无法解绑的
+
+```
+this.scroll = this.onScroll.bind(this) 
+
+/**
+ * window添加scroll事件
+ */
+addEventScroll () {
+    window.addEventListener('scroll', this.scroll)
+}
+
+/**
+ * window删除scroll事件
+ */
+removeEventScroll () {
+    window.removeEventListener('scroll', this.scroll)
+}
+
 ```
 
 #### create-react-app 中使用字体图标
