@@ -1,9 +1,54 @@
 import React, { Component } from 'react'
+import CircularProgress from 'material-ui/CircularProgress'
+import Snackbar from 'material-ui/Snackbar'
+import { connect } from 'react-redux'
+import style from './America.css'
+import * as americaActions from './../../store/actions/americaActions'
+import { List, ListItem } from 'material-ui/List'
 
+function mapStateToProps (state) {
+    return {
+        americaList: state.americaList
+    }
+}
+
+@connect(mapStateToProps, americaActions)
 class America extends Component {
+
+    componentWillMount () {
+        this.getAmericaRank()
+        window.scrollTo(0, 0)
+    }
+
+    /**
+     * 获取北美票房排行版
+     */
+    getAmericaRank = () => {
+        this.props.getAmerica()
+    }
+
     render () {
+        const { isReq, errMsg, items } = this.props.americaList
+        console.log(items)
         return (
-            <div>北美票房</div>
+            <section className={style['america-wrapper']}>
+                <div className={style['america-content']}>    
+                </div>
+                {/* loading */}
+                {
+                    isReq && (
+                        <div className={style['america-loading']}>
+                            <CircularProgress size={70} thickness={5}/>
+                        </div>
+                    )   
+                }
+                {/* 错误弹窗 */}
+                <Snackbar
+                    open={errMsg !== ''}
+                    message={errMsg}
+                    autoHideDuration={3000}
+                />
+            </section>
         )
     }
 }

@@ -13,7 +13,14 @@ export const top250Error = makeActionCreator(TOP250_ERROR, 'err')
 export const top250Refresh = makeActionCreator(TOP250_REFRESH)
 
 function cacheTop250(state) {
-    return true
+    const top250List = state['top250List']
+    if (!top250List) {
+        return true
+    } else if (top250List.isReq) {
+        return false
+    } else {
+        return top250List.isOverdue
+    }
 }
 
 export function getTop250 (params) {
