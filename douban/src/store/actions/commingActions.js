@@ -1,5 +1,5 @@
 import makeActionCreator from './../../util/ActionCreators'
-import { getCommingMovieAja } from './../../api/comming'
+import { getComingMovieAjax } from './../../api/comming'
 import HotMovie from './../../model/HotMovie'
 
 export const COMMING_MOVIE_REQUEST = 'COMMING_MOVIE_REQUEST'
@@ -27,7 +27,7 @@ export function getComming (params) {
     return (dispatch, getState) => {
         if (cacheCommingMovie(getState())) {
             dispatch(commingMovieRequest())
-            return getCommingMovieAja(params).then(res => {
+            return getComingMovieAjax(params).then(res => {
                 console.log(res)
                 const { count, start, subjects, total } = res
                 let items = subjects.map(item => new HotMovie({

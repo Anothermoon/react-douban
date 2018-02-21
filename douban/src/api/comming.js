@@ -1,7 +1,7 @@
 import Axios from './../util/Axios'
 
 // 即将上映电影
-export function getCommingMovieAja (params = {
+export function getComingMovieAjax (params = {
     start: 0,
     count: 20
 }) {
