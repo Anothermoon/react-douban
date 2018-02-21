@@ -16,6 +16,9 @@ function mapStateToProps (state) {
 @connect(mapStateToProps, top250Actions)
 class Top250 extends Component {
 
+    /**
+     * 获取top250列表
+     */
     getTop250Data = (params) => {
         this.props.getTop250(params)
     }
