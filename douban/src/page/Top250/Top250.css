@@ -1,0 +1,22 @@
+.top250-wrapper {
+    width: 100%;
+    height: auto;
+}
+
+.top250-content {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+
+.top250-loading {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}

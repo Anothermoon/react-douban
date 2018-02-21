@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import HotMovie from './../HotMovie/HotMovie'
-import style from './HotMovieList.css'
+import style from './Top250List.css'
 
-class HotMovieList extends Component {
+class Top250List extends Component {
     render () {
-        const { hotMovieList } = this.props
+        const { top250List } = this.props
         return (
-            <ul className={style['hot-movie-list']}>
+            <ul className={style['top-250-list']}>
                 {
-                    hotMovieList.map(item => {
+                    top250List.map(item => {
                         return (
                             <HotMovie
                                 key={item.id}
@@ -22,4 +22,4 @@ class HotMovieList extends Component {
     }
 }
 
-export default HotMovieList
+export default Top250List
