@@ -35,7 +35,6 @@
     "promise": "8.0.1",
     "qs": "^6.5.1",
     "raf": "3.4.0",
-    "ramda": "^0.25.0",
     "react": "^16.2.0",
     "react-dev-utils": "^5.0.0",
     "react-dom": "^16.2.0",
@@ -104,5 +103,20 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "https://api.douban.com"
+  "proxy": {
+    "/v2": {
+      "target": "https://api.douban.com",
+      "changeOrigin": true,
+      "pathRewrite":{
+        "^/v2": "/v2"
+      }
+    },
+    "/j": {
+      "target": "https://movie.douban.com",
+      "changeOrigin": true,
+      "pathRewrite":{
+        "^/j": "/j"
+      }
+    }
+  }
 }

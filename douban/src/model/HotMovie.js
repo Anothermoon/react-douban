@@ -1,5 +1,4 @@
 import Performer from './Performer'
-import { map } from 'ramda'
 
 class HotMovie {
     constructor ({ id, rating, genres, casts, images, original_title, subtype, title, year }) {
@@ -16,7 +15,8 @@ class HotMovie {
 }
 
 function createCasts (casts) {
-    return map((castItem) => new Performer(castItem.id, castItem.name, castItem.avatars), casts)
+    return casts.map((castItem) => new Performer(castItem.id, castItem.name, castItem.avatars))
+    // return map((castItem) => new Performer(castItem.id, castItem.name, castItem.avatars), casts)
 }
 
 export default HotMovie
