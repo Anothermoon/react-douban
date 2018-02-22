@@ -17,28 +17,19 @@ function mapStateToProps (state) {
 class ConditionsSearch extends Component {
 
     componentWillMount () {
-        let tagsStr = []
-        const { tags } = this.props.termList
-        tags.forEach(item => item.value !== '' && tagsStr.push(item.value))
+        const { tagsStr } = this.props.termList
         this.getMovie({
             start: 0,
-            tags: tagsStr.join(',')
+            tags: tagsStr
         })
     }
 
     componentWillReceiveProps (nextProps) {
-        let nextTags = []
-        let curTags = []
-        let nextTagsStr = ''
-        let curTagsStr = ''
-        nextProps.termList.tags.forEach(item => item.value !== '' && nextTags.push(item.value))
-        this.props.termList.tags.forEach(item => item.value !== '' && curTags.push(item.value))
-        nextTagsStr = nextTags.join(',')
-        curTagsStr = curTags.join(',')
-        if (nextTagsStr !== curTagsStr) {
+        if (nextProps.termList.tagsStr !== this.props.termList.tagsStr) {
+            this.props.termRefresh()
             this.getMovie({
                 start: 0,
-                tags: nextTagsStr
+                tags: nextProps.termList.tagsStr
             })
         }
     }

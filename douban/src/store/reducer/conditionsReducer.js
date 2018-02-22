@@ -38,7 +38,8 @@ function termList (state = {
         key: '全部地区',
         value: '',
         type: 'region',
-    }]
+    }],
+    tagsStr: ''
 }, action) {
     switch(action.type) {
         case TERM_REQUEST:
@@ -47,7 +48,7 @@ function termList (state = {
                 isReq: true
             }
         case TERM_RESPONCE:
-            let { items, start, tags } = action.res
+            let { items, start } = action.res
             return {
                 ...state,
                 isReq: false,
@@ -55,7 +56,6 @@ function termList (state = {
                 start,
                 errMsg: '',
                 currentItemLength: items.length,
-                tags,
                 item: start == 0 ? [...items] : [...state.items, ...items]
             }
         case TERM_ERROR:
@@ -74,14 +74,15 @@ function termList (state = {
         case TERM_DELETE_TAGS:
             return {
                 ...state,
-                tags: addDeletetags(state.tags, action)
+                tags: changeTags(state.tags, action),
+                tagsStr: changeTagsStr(state.tags, action)
             }
         default:
             return state
     }
 }
 
-function addDeletetags (state = [], action) {
+function changeTags (state = [], action) {
     switch(action.type) {
         case TERM_ADD_TAGS:
             let { tag } = action
@@ -97,6 +98,29 @@ function addDeletetags (state = [], action) {
         default:
             return state
     }
+}
+
+function changeTagsStr (state = '', action) {
+    let newTags = []
+    switch(action.type) {
+        case TERM_ADD_TAGS:   
+            let { tag } = action
+            newTags = state.filter(item => item.type !== tag.type)
+            newTags = [...newTags, tag]
+            return tagsArrShiftStr(newTags)
+        case TERM_DELETE_TAGS:
+            let { key } = action
+            newTags = state.filter(item => item.key !== key)
+            return tagsArrShiftStr(newTags)
+        default:
+            return state
+    }
+}
+
+function tagsArrShiftStr (tagsArr) {
+    let tagsStrArr = []
+    tagsArr.forEach(item => item.value !== '' && tagsStrArr.push(item.value))
+    return tagsStrArr.join(',')
 }
 
 export default termList

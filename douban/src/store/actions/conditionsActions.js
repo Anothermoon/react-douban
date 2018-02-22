@@ -19,7 +19,6 @@ export const termDeleteTags = makeActionCreator(TERM_DELETE_TAGS, 'key')
 // 缓存
 function cacheTerm (state) {
     const termList = state['termList']
-    console.log(termList)
     if (!termList) {
         return true
     } else if (termList.isReq) {
@@ -41,10 +40,10 @@ export function getTermMovie (params) {
                     item.rate,
                     item.cover
                 ))
-                // dispatch(termResponce({
-                //     start,
-                //     items
-                // }))
+                dispatch(termResponce({
+                    start,
+                    items
+                }))
             }).catch(err => {
                 dispatch(termError())
             })
