@@ -15,6 +15,12 @@ function mapStateToProps (state) {
 
 @connect(mapStateToProps, commingActions)
 class Coming extends Component {
+
+    onDetailClick = (id) => {
+        const { history } = this.props
+        history.push(`/movie/${id}`)
+    }
+
     /**
      * 获取即将上映电影列表
      */
@@ -35,6 +41,7 @@ class Coming extends Component {
                 <section className={style['coming-wrapper']}>
                     <div className={style['coming-content']}>
                         <MoveList
+                            onDetailClick={this.onDetailClick}
                             list={items}
                         />
                     </div>
