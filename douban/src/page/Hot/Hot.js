@@ -16,6 +16,11 @@ function mapStateToProps (state) {
 @connect(mapStateToProps, hotActions)
 class Hot extends Component {
 
+    onDetailClick = (id) => {
+        const { history } = this.props
+        history.push(`/movie/${id}`)
+    }
+
     /**
      * 获取热门电影列表
      */
@@ -36,6 +41,7 @@ class Hot extends Component {
                 <section className={style['hot-wrapper']}>
                     <div className={style['hot-content']}>
                         <MoveList
+                            onDetailClick={this.onDetailClick}
                             list={items}
                         />
                     </div>

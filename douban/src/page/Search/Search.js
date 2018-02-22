@@ -30,7 +30,7 @@ class Search extends Component {
                 value,
                 start
             })
-        }, 400)
+        }, 600)
     }
 
     /**

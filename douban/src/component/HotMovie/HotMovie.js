@@ -12,10 +12,18 @@ class HotMovie extends Component {
         this.image = [first, second, third]
     }
 
+    /**
+     * 进入详情页
+     * @param {Number} id 电影id
+     */
+    handleDetailClick = (id) => {
+        this.props.onDetailClick(id)
+    }
+
     render () {
-        const { title, year, images, casts, index, rank } = this.props
+        const { title, year, images, casts, index, rank, id } = this.props
         return (
-            <li className={style['item']}>
+            <li className={style['item']} onClick={() => this.handleDetailClick(id)}>
                 <div>
                     <LazyLoad
                         once
