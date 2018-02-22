@@ -42,7 +42,7 @@ function termList (state = {
                 isOverdue: false,
                 start,
                 errMsg: '',
-                currentItemLength: item.length,
+                currentItemLength: items.length,
                 tags,
                 item: start == 0 ? [...items] : [...state.items, ...items]
             }
