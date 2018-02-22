@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import style from './TypeList.css'
 
 class TypeList extends Component {
+
+    handleTagsClick = (value) => {
+        this.props.onTagsClick(value)
+    }
+
     render () {
         const { list } = this.props
         return (
@@ -12,6 +17,7 @@ class TypeList extends Component {
                     list.map((item, index) => {
                         return (
                             <li
+                                onClick={() => this.handleTagsClick(item)}
                                 className={
                                     `${style['type-list-item']} ${index === 0 ? style['type-list-item-active'] : 0}`
                                 }

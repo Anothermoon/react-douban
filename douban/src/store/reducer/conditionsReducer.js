@@ -74,7 +74,7 @@ function tags (state = [], action) {
         case TERM_ADD_TAGS:
             let { tag } = action
             // 去除同种类型的
-            let newTags = state.filter(item => item.key !== tag.key)
+            let newTags = state.filter(item => item.type !== tag.type)
             return [
                 ...newTags,
                 tag

@@ -12,7 +12,7 @@ export const termRequest = makeActionCreator(TERM_REQUEST)
 export const termResponce = makeActionCreator(TERM_RESPONCE)
 export const termError = makeActionCreator(TERM_ERROR)
 export const termRefresh = makeActionCreator(TERM_REFRESH)
-export const termAddTags = makeActionCreator(TERM_ADD_TAGS)
+export const termAddTags = makeActionCreator(TERM_ADD_TAGS, 'tag')
 export const termDeleteTags = makeActionCreator(TERM_DELETE_TAGS)
 
 function cacheTerm (state) {

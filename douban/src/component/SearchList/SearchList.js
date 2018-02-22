@@ -33,7 +33,7 @@ class SearchList extends Component {
                             <RaisedButton
                                 onClick={this.handleMoreClick}
                                 fullWidth={true}
-                                label="more…"/>
+                                label="more"/>
                         </div>
                     )
                 }
