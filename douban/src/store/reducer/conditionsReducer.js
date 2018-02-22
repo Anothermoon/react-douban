@@ -26,7 +26,19 @@ function termList (state = {
     start: 0,
     count: 20,
     errMsg: '',
-    tags: []
+    tags: [{
+        key: '全部形式',
+        value: '',
+        type: 'form',
+    }, {
+        key: '全部类型',
+        value: '',
+        type: 'type',
+    }, {
+        key: '全部地区',
+        value: '',
+        type: 'region',
+    }]
 }, action) {
     switch(action.type) {
         case TERM_REQUEST:
@@ -62,14 +74,14 @@ function termList (state = {
         case TERM_DELETE_TAGS:
             return {
                 ...state,
-                tags: tags(state.tags, action)
+                tags: addDeletetags(state.tags, action)
             }
         default:
             return state
     }
 }
 
-function tags (state = [], action) {
+function addDeletetags (state = [], action) {
     switch(action.type) {
         case TERM_ADD_TAGS:
             let { tag } = action

@@ -8,7 +8,7 @@ class TypeList extends Component {
     }
 
     render () {
-        const { list } = this.props
+        const { list, tags, type } = this.props
         return (
             <ul className={style['type-list']} style={{
                 width: `${list.length * 64}px`
@@ -19,7 +19,7 @@ class TypeList extends Component {
                             <li
                                 onClick={() => this.handleTagsClick(item)}
                                 className={
-                                    `${style['type-list-item']} ${index === 0 ? style['type-list-item-active'] : 0}`
+                                    `${style['type-list-item']} ${tags.findIndex(tagsItem => tagsItem.key === item.key) !== -1 ? style['type-list-item-active'] : 0}`
                                 }
                                 key={index}>
                                 {item.key}

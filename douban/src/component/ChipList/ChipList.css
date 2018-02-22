@@ -1,0 +1,12 @@
+.chip-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+    padding: 0 15px;
+}
+
+.chip-list-item {
+    margin: 0 3px !important;
+}

@@ -13,23 +13,32 @@ export const termResponce = makeActionCreator(TERM_RESPONCE)
 export const termError = makeActionCreator(TERM_ERROR)
 export const termRefresh = makeActionCreator(TERM_REFRESH)
 export const termAddTags = makeActionCreator(TERM_ADD_TAGS, 'tag')
-export const termDeleteTags = makeActionCreator(TERM_DELETE_TAGS)
+export const termDeleteTags = makeActionCreator(TERM_DELETE_TAGS, 'key')
 
+// 缓存
 function cacheTerm (state) {
-    return true
+    const termList = state['termList']
+    if (!termList) {
+        return true
+    } else if (termList.isReq) {
+        return false
+    } else {
+        return termList.isOverdue
+    }
 }
 
 export function getTermMovie (params) {
     return (dispatch, getState) => {
-        dispatch(termRequest())
-        if (cacheTerm()) {
-            return searchConditionsMovieAjax(params).then(res => {
-                dispatch(termResponce())
-            }).catch(err => {
-                dispatch(termError())
-            })
-        } else {
-            return Promise.resolve()
-        }
+        console.log(params)
+        // dispatch(termRequest())
+        // if (cacheTerm(getState())) {
+        //     return searchConditionsMovieAjax(params).then(res => {
+        //         dispatch(termResponce())
+        //     }).catch(err => {
+        //         dispatch(termError())
+        //     })
+        // } else {
+        //     return Promise.resolve()
+        // }
     }
 }
