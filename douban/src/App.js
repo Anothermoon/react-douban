@@ -59,18 +59,21 @@ class App extends Component {
                             onLeftIconClick={this.handleLeftIconClick}
                             open={this.state.openDrawer} />
                         <div>
-                            <Redirect from='/' to='/hot' />
-                            <Route path="/hot" component={AsyncHot} />
-                            <Route path="/coming" component={AsyncComing} />
-                            <Route path="/top250" component={AsyncTop250} />
-                            <Route path="/publicpraise" component={AsyncPublicPraise} />
-                            <Route path="/america" component={AsyncAmerica} />
-                            <Route path="/newmovie" component={AsyncNewMovie} />
-                            <Route path="/search" component={AsyncSearch} />
-                            <Route path="/loginregister" component={AsyncLoginRegister} />
-                            <Route path="/filmmaker/:id" component={AsyncFilmmaker} />
-                            <Route path="/movie/:id" component={AsyncMovieDetailed} />
-                            <Route path="/conditions" component={AsyncConditionsSearch} />
+                            <Switch>
+                                <Route path="/hot" component={AsyncHot} />
+                                <Route path="/coming" component={AsyncComing} />
+                                <Route path="/top250" component={AsyncTop250} />
+                                <Route path="/publicpraise" component={AsyncPublicPraise} />
+                                <Route path="/america" component={AsyncAmerica} />
+                                <Route path="/newmovie" component={AsyncNewMovie} />
+                                <Route path="/search" component={AsyncSearch} />
+                                <Route path="/loginregister" component={AsyncLoginRegister} />
+                                <Route path="/filmmaker/:id" component={AsyncFilmmaker} />
+                                <Route path="/movie/:id" component={AsyncMovieDetailed} />
+                                <Route path="/conditions" component={AsyncConditionsSearch} />
+                                {/* 放在Route后面 */}
+                                <Redirect from='/' to='/hot' />
+                            </Switch>
                         </div>
                     </div>
                 </Router>

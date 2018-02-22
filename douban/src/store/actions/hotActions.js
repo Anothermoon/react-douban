@@ -2,6 +2,7 @@ import { getHotMovieAjax } from './../../api/hot'
 import HotMovie from './../../model/HotMovie'
 import makeActionCreator from './../../util/ActionCreators'
 
+
 export const HOT_MOVIE_REQUEST = 'HOT_MOVIE_REQUEST'
 export const HOT_MOVIE_RESPONCE = 'HOT_MOVIE_RESPONCE'
 export const HOT_MOVIE_ERROR = 'HOT_MOVIE_ERROR'
