@@ -3,7 +3,7 @@ class Movie {
         this.id = id
         this.title = title
         this.rate = rate
-        this.image = this.image
+        this.image = image
     }
 }
 

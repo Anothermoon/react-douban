@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Snackbar from 'material-ui/Snackbar'
 import CircularProgress from 'material-ui/CircularProgress'
 import TypeList from './../../component/TypeList/TypeList'
 import style from './ConditionsSearch.css'
 import { base } from './../../public/js/base'
 import * as conditionsActions from './../../store/actions/conditionsActions'
 import ChipList from './../../component/ChipList/ChipList'
+import ConditionsSearchList from './../../component/ConditionsSearchList/ConditionsSearchList'
 
 function mapStateToProps (state) {
     return {
@@ -60,7 +62,8 @@ class ConditionsSearch extends Component {
 
     render () {
         const { form, type, region } = base
-        const { tags, isReq } = this.props.termList
+        const { tags, isReq, errMsg, items } = this.props.termList
+        console.log(this.props.termList)
         return (
             <section className={style['conditions-search-wrapper']}>
                 <div className={style['type-list-wrapper']}>
@@ -88,6 +91,9 @@ class ConditionsSearch extends Component {
                     onTagsDelete={this.onTagsDelete}
                     list={tags}
                 />
+                <ConditionsSearchList
+                    list={items}
+                />
                 {/* loading */}
                 {
                     isReq && (
@@ -96,6 +102,12 @@ class ConditionsSearch extends Component {
                         </div>
                     )   
                 }
+                {/* 错误弹窗 */}
+                <Snackbar
+                    open={errMsg !== ''}
+                    message={errMsg}
+                    autoHideDuration={3000}
+                />
             </section>
         )
     }

@@ -1,0 +1,21 @@
+.grid-list-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 10px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.grid-tile {
+    width: 160px !important;
+    height: 240px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border-bottom: 10px solid #fff;
+}
+
+.score {
+    display: inline-block;
+    margin-top: 10px;
+    color: #ffcd32;
+}
