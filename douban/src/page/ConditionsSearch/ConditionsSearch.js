@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Chip from 'material-ui/Chip'
 import TypeList from './../../component/TypeList/TypeList'
 import style from './ConditionsSearch.css'
 import { base } from './../../public/js/base'
