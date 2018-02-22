@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import CircularProgress from 'material-ui/CircularProgress'
 import TypeList from './../../component/TypeList/TypeList'
 import style from './ConditionsSearch.css'
 import { base } from './../../public/js/base'
@@ -16,15 +17,38 @@ function mapStateToProps (state) {
 class ConditionsSearch extends Component {
 
     componentWillMount () {
-        this.getMovie()
+        let tagsStr = []
+        const { tags } = this.props.termList
+        tags.forEach(item => item.value !== '' && tagsStr.push(item.value))
+        this.getMovie({
+            start: 0,
+            tags: tagsStr.join(',')
+        })
+    }
+
+    componentWillReceiveProps (nextProps) {
+        let nextTags = []
+        let curTags = []
+        let nextTagsStr = ''
+        let curTagsStr = ''
+        nextProps.termList.tags.forEach(item => item.value !== '' && nextTags.push(item.value))
+        this.props.termList.tags.forEach(item => item.value !== '' && curTags.push(item.value))
+        nextTagsStr = nextTags.join(',')
+        curTagsStr = curTags.join(',')
+        if (nextTagsStr !== curTagsStr) {
+            this.getMovie({
+                start: 0,
+                tags: nextTagsStr
+            })
+        }
     }
 
     /**
      * 获取电影数据 
      */
-    getMovie = () => {
+    getMovie = (params) => {
         const { getTermMovie } = this.props
-        getTermMovie()
+        getTermMovie(params)
     }
     
     /**
@@ -45,7 +69,7 @@ class ConditionsSearch extends Component {
 
     render () {
         const { form, type, region } = base
-        const { tags } = this.props.termList
+        const { tags, isReq } = this.props.termList
         return (
             <section className={style['conditions-search-wrapper']}>
                 <div className={style['type-list-wrapper']}>
@@ -73,6 +97,14 @@ class ConditionsSearch extends Component {
                     onTagsDelete={this.onTagsDelete}
                     list={tags}
                 />
+                {/* loading */}
+                {
+                    isReq && (
+                        <div className={style['conditions-loading']}>
+                            <CircularProgress size={70} thickness={5}/>
+                        </div>
+                    )   
+                }
             </section>
         )
     }
