@@ -5,11 +5,25 @@ import CircularProgress from 'material-ui/CircularProgress'
 import first from './../../public/image/first.png'
 import second from './../../public/image/second.png'
 import third from './../../public/image/third.png'
+import PropTypes from 'prop-types'
 
 class HotMovie extends Component {
     constructor (props) {
         super(props)
         this.image = [first, second, third]
+    }
+
+    static propTypes = {
+        casts: PropTypes.arrayOf(PropTypes.object),
+        genres: PropTypes.arrayOf(PropTypes.string),
+        id: PropTypes.string,
+        images: PropTypes.object,
+        index: PropTypes.number,
+        rank: PropTypes.any,
+        rating: PropTypes.object,
+        subtype: PropTypes.string,
+        title: PropTypes.string,
+        year: PropTypes.string
     }
 
     /**

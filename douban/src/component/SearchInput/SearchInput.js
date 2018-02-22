@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import style from './SearchInput.css'
 import TextField from 'material-ui/TextField'
+import PropTypes from 'prop-types'
 
 class SearchInput extends Component {
+
+    static propTypes = {
+        value: PropTypes.string
+    }
 
     /**
      * 搜索框输入

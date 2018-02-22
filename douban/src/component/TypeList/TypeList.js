@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 import style from './TypeList.css'
+import PropTypes from 'prop-types'
 
 class TypeList extends Component {
+
+    static propTypes = {
+        list: PropTypes.arrayOf(PropTypes.object),
+        tags: PropTypes.arrayOf(PropTypes.object),
+        type: PropTypes.string
+    }
 
     handleTagsClick = (value) => {
         this.props.onTagsClick(value)
     }
 
     render () {
+        console.log(this.props)
         const { list, tags } = this.props
         return (
             <ul className={style['type-list']} style={{

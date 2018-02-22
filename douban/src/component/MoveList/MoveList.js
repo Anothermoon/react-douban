@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import HotMovie from './../HotMovie/HotMovie'
 import style from './MoveList.css'
+import PropTypes from 'prop-types'
 
 class MoveList extends Component {
+
+    static propTypes = {
+        list: PropTypes.array,
+        rank: PropTypes.any
+    }
+    
     onDetailClick = (id) => {
         this.props.onDetailClick(id)
     }

@@ -3,8 +3,14 @@ import { List, ListItem } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import RaisedButton from 'material-ui/RaisedButton'
 import style from './SearchList.css'
+import PropTypes from 'prop-types'
 
 class SearchList extends Component {
+
+    static propTypes = {
+        result: PropTypes.arrayOf(PropTypes.object),
+        isAll: PropTypes.bool
+    }
 
     /**
      * 跳转到详情页

@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import AppBar from 'material-ui/AppBar'
+import PropTypes from 'prop-types'
 
 class DbHeader extends Component {
     constructor () {
         super()
         this.state = {
         }
+    }
+
+    static propTypes = {
+        title: PropTypes.string
     }
 
     /**
