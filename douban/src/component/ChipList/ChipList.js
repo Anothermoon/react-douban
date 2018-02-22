@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import Chip from 'material-ui/Chip'
 import style from './ChipList.css'
+import PropTypes from 'prop-types'
 
 class ChipList extends Component {
+    static propTypes = {
+        list: PropTypes.array
+    }
+
     /**
      * 删除标签
      */

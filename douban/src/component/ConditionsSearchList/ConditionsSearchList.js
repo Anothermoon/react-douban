@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import {GridList, GridTile} from 'material-ui/GridList'
 import style from './ConditionsSearchList.css'
+import PropTypes from 'prop-types'
 
 class ConditionsSearchList extends Component {
+    static propTypes = {
+        list: PropTypes.array
+    }
+
     /**
      * 跳转到详情页
      * @param {id} 电影的id

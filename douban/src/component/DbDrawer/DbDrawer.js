@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 import CustomLink from './../../base/CustomLink/CustomLink'
+import PropTypes from 'prop-types'
 
 class DbDrawer extends Component {
+    static propTypes = {
+        open: PropTypes.bool
+    }
 
     /** 
      * Link点击 

@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import { List, ListItem } from 'material-ui/List'
 import Avatar from 'material-ui/Avatar'
 import style from './AmericaBoxList.css'
+import PropTypes from 'prop-types'
 
 class AmericaBoxList extends Component {
+
+    static propTypes = {
+        list: PropTypes.array
+    }
 
     /**
      * 跳转到详情页
@@ -14,6 +19,7 @@ class AmericaBoxList extends Component {
     }
 
     render () {
+        
         const { list } = this.props
         return (
             <List className={style['americal-box-list']}>
