@@ -16,6 +16,11 @@ function mapStateToProps (state) {
 @connect(mapStateToProps, top250Actions)
 class Top250 extends Component {
 
+    onDetailClick = (id) => {
+        const { history } = this.props
+        history.push(`/movie/${id}`)
+    }
+
     /**
      * 获取top250列表
      */
@@ -36,6 +41,7 @@ class Top250 extends Component {
                 <section className={style['top250-wrapper']}>
                     <div className={style['top250-content']}>
                         <MoveList
+                            onDetailClick={this.onDetailClick}
                             list={items}
                             rank={true}
                         />
