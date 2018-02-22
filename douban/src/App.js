@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DdHeader from './component/DbHeader/DbHeader'
 import DdDrawer from './component/DbDrawer/DbDrawer'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import AsyncRouterComponent from './util/AsyncRouterComponent'
 import './App.css'
 
@@ -18,64 +18,65 @@ const AsyncMovieDetailed = AsyncRouterComponent(() => import('./page/MovieDetail
 const AsyncConditionsSearch = AsyncRouterComponent(() => import('./page/ConditionsSearch/ConditionsSearch'))
 
 class App extends Component {
-  constructor () {
-    super()
-    this.state = {
-      // 侧边栏开关
-      openDrawer: false
+    constructor() {
+        super()
+        this.state = {
+            // 侧边栏开关
+            openDrawer: false
+        }
     }
-  }
-  
-  /**
-   * 弹出侧边菜单
-   */
-  handleLeftIconClick = () => {
-    this.setState((prevState, props) => {
-      return {
-        openDrawer: !prevState.openDrawer
-      }
-    })
-  }
 
-  /**
-   * 关闭侧边菜单
-   */
-  handleCloseDrawer = () => {
-    this.setState({
-      openDrawer: false
-    })
-  }
+    /**
+     * 弹出侧边菜单
+     */
+    handleLeftIconClick = () => {
+        this.setState((prevState, props) => {
+            return {
+                openDrawer: !prevState.openDrawer
+            }
+        })
+    }
 
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <div>
-            <DdHeader
-              onLeftIconClick={this.handleLeftIconClick}
-              title="豆瓣电影"/>
-            <DdDrawer
-              onCloseDrawer={this.handleCloseDrawer}
-              onLeftIconClick={this.handleLeftIconClick}
-              open={this.state.openDrawer}/>
-            <div>
-                <Route path="/hot" component={AsyncHot}/>
-                <Route path="/coming" component={AsyncComing}/>
-                <Route path="/top250" component={AsyncTop250}/>
-                <Route path="/publicpraise" component={AsyncPublicPraise}/>
-                <Route path="/america" component={AsyncAmerica}/>
-                <Route path="/newmovie" component={AsyncNewMovie}/>
-                <Route path="/search" component={AsyncSearch}/>
-                <Route path="/loginregister" component={AsyncLoginRegister}/>
-                <Route path="/filmmaker/:id" component={AsyncFilmmaker}/>
-                <Route path="/movie/:id" component={AsyncMovieDetailed}/>
-                <Route path="/conditions" component={AsyncConditionsSearch}/>
+    /**
+     * 关闭侧边菜单
+     */
+    handleCloseDrawer = () => {
+        this.setState({
+            openDrawer: false
+        })
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <Router>
+                    <div>
+                        <DdHeader
+                            onLeftIconClick={this.handleLeftIconClick}
+                            title="豆瓣电影" />
+                        <DdDrawer
+                            onCloseDrawer={this.handleCloseDrawer}
+                            onLeftIconClick={this.handleLeftIconClick}
+                            open={this.state.openDrawer} />
+                        <div>
+                            <Redirect from='/' to='/hot' />
+                            <Route path="/hot" component={AsyncHot} />
+                            <Route path="/coming" component={AsyncComing} />
+                            <Route path="/top250" component={AsyncTop250} />
+                            <Route path="/publicpraise" component={AsyncPublicPraise} />
+                            <Route path="/america" component={AsyncAmerica} />
+                            <Route path="/newmovie" component={AsyncNewMovie} />
+                            <Route path="/search" component={AsyncSearch} />
+                            <Route path="/loginregister" component={AsyncLoginRegister} />
+                            <Route path="/filmmaker/:id" component={AsyncFilmmaker} />
+                            <Route path="/movie/:id" component={AsyncMovieDetailed} />
+                            <Route path="/conditions" component={AsyncConditionsSearch} />
+                        </div>
+                    </div>
+                </Router>
             </div>
-          </div>
-        </Router>
-      </div>
-    )
-  }
+        )
+    }
 }
 
 export default App
