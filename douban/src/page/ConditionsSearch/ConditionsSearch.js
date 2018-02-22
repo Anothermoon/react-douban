@@ -49,6 +49,11 @@ class ConditionsSearch extends Component {
         })
     }
 
+    onDetailClick = (id) => {
+        const { history } = this.props
+        history.push(`/movie/${id}`)
+    }
+
     /**
      * 获取电影数据 
      */
@@ -104,6 +109,7 @@ class ConditionsSearch extends Component {
                     list={tags}
                 />
                 <ConditionsSearchList
+                    onDetailClick={this.onDetailClick}
                     list={items}
                 />
                 {/* loading */}
