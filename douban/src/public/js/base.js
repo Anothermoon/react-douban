@@ -1,68 +1,89 @@
 export const base = {
     form: [{
         key: '全部形式',
-        value: ''
+        value: '',
+        type: 'form',
     },{
         key: '电影',
-        value: '电影'
+        value: '电影',
+        type: 'form',
     }, {
         key: '电视剧',
-        value: '电视剧'
+        value: '电视剧',
+        type: 'form',
     }, {
         key: '综艺',
-        value: '综艺'
+        value: '综艺',
+        type: 'form',
     }, {
         key: '动画',
-        value: '动画'
+        value: '动画',
+        type: 'form',
     }, {
         key: '纪录片',
-        value: '纪录片'
+        value: '纪录片',
+        type: 'form',
     }],
     type: [{
         key: '全部类型',
-        value: ''
+        value: '',
+        type: 'type',
     }, {
         key: '爱情',
-        value: '爱情'
+        value: '爱情',
+        type: 'type',
     }, {
         key: '喜剧',
-        value: '喜剧'
+        value: '喜剧',
+        type: 'type',
     }, {
         key: '科幻',
-        value: '科幻'
+        value: '科幻',
+        type: 'type',
     }, {
         key: '动作',
-        value: '动作'
+        value: '动作',
+        type: 'type',
     }, {
         key: '悬疑',
-        value: '悬疑'
+        value: '悬疑',
+        type: 'type',
     }, {
         key: '青春',
-        value: '青春'
+        value: '青春',
+        type: 'type',
     }, {
         key: '战争',
-        value: '战争'
+        value: '战争',
+        type: 'type',
     }],
     region: [{
         key: '全部地区',
-        value: ''
+        value: '',
+        type: 'region',
     }, {
         key: '大陆',
-        value: '大陆'
+        value: '大陆',
+        type: 'region',
     }, {
         key: '美国',
-        value: '美国'
+        value: '美国',
+        type: 'region',
     }, {
         key: '香港',
-        value: '香港'
+        value: '香港',
+        type: 'region',
     }, {
         key: '台湾',
-        value: '台湾'
+        value: '台湾',
+        type: 'region',
     }, {
         key: '日本',
-        value: '日本'
+        value: '日本',
+        type: 'region',
     }, {
         key: '韩国',
-        value: '韩国'
+        value: '韩国',
+        type: 'region',
     }]
 }
