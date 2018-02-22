@@ -20,6 +20,11 @@ class America extends Component {
         window.scrollTo(0, 0)
     }
 
+    onDetailClick = (id) => {
+        const { history } = this.props
+        history.push(`/movie/${id}`)
+    }
+
     /**
      * 获取北美票房排行版
      */
@@ -32,7 +37,9 @@ class America extends Component {
         return (
             <section className={style['america-wrapper']}>
                 <div className={style['america-content']}>
-                    <AmericaBoxList list={items}/>   
+                    <AmericaBoxList
+                    onDetailClick={this.onDetailClick}
+                    list={items}/>   
                 </div>
                 {/* loading */}
                 {

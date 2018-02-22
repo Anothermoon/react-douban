@@ -4,6 +4,15 @@ import Avatar from 'material-ui/Avatar'
 import style from './AmericaBoxList.css'
 
 class AmericaBoxList extends Component {
+
+    /**
+     * 跳转到详情页
+     * @param {Number} id 电影的id 
+     */
+    handleDetailClick (id) {
+        this.props.onDetailClick(id)
+    }
+
     render () {
         const { list } = this.props
         return (
@@ -13,6 +22,7 @@ class AmericaBoxList extends Component {
                         return (
                             <ListItem
                                 key={index}
+                                onClick={() => this.handleDetailClick(item.movie.id)}
                                 primaryText={item.movie.title}
                                 secondaryText={`$${item.box}`}
                                 leftAvatar={<Avatar src={item.movie.images.small} />}
