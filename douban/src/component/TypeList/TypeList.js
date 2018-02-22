@@ -15,7 +15,6 @@ class TypeList extends Component {
     }
 
     render () {
-        console.log(this.props)
         const { list, tags } = this.props
         return (
             <ul className={style['type-list']} style={{
