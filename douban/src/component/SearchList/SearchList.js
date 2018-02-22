@@ -5,6 +5,15 @@ import RaisedButton from 'material-ui/RaisedButton'
 import style from './SearchList.css'
 
 class SearchList extends Component {
+
+    /**
+     * 跳转到详情页
+     * @param {Number} id 
+     */
+    handleDetailClick = (id) => {
+        this.props.onDetailClick(id)
+    }
+
     /**
      * 加载更多
      */
@@ -20,6 +29,7 @@ class SearchList extends Component {
                     result.map(item => {
                         return (
                             <ListItem
+                                onClick={() => this.handleDetailClick(item.id)}
                                 key={item.id}
                                 primaryText={item.title}
                                 leftAvatar={<Avatar src={item.images.small} />}

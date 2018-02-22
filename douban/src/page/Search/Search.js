@@ -33,6 +33,11 @@ class Search extends Component {
         }, 600)
     }
 
+    onDetailClick = (id) => {
+        const { history } = this.props
+        history.push(`/movie/${id}`)
+    }
+
     /**
      * 搜索框变化
      * @param {String} value 搜索框内容
@@ -78,6 +83,7 @@ class Search extends Component {
                 {
                     value !== '' && (
                         <SearchList
+                            onDetailClick={this.onDetailClick}
                             onResultNextPage={this.onResultNextPage}
                             result={items}
                             isAll={isAll}
