@@ -1,0 +1,25 @@
+.type-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    list-style: none;
+}
+
+.type-list-item {
+    width: 64px;
+    height: 26px;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 2px 2px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.type-list-item-active {
+    background: rgb(0, 188, 212);
+    color: #fff;
+    border-radius: 3px;
+}

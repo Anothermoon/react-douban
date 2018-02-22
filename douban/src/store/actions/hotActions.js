@@ -1,6 +1,6 @@
-import makeActionCreator from './../../util/ActionCreators'
 import { getHotMovieAjax } from './../../api/hot'
 import HotMovie from './../../model/HotMovie'
+import makeActionCreator from './../../util/ActionCreators'
 
 export const HOT_MOVIE_REQUEST = 'HOT_MOVIE_REQUEST'
 export const HOT_MOVIE_RESPONCE = 'HOT_MOVIE_RESPONCE'

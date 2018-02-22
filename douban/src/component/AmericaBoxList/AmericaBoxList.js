@@ -14,7 +14,7 @@ class AmericaBoxList extends Component {
                             <ListItem
                                 key={index}
                                 primaryText={item.movie.title}
-                                secondaryText={`${item.box}美元`}
+                                secondaryText={`${item.box}$`}
                                 leftAvatar={<Avatar src={item.movie.images.small} />}
                                 rightIcon={<span className={style['americal-rank']}>{index + 1}</span>}
                             />

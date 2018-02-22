@@ -114,6 +114,7 @@
     "/j": {
       "target": "https://movie.douban.com",
       "changeOrigin": true,
+      "secure": false,
       "pathRewrite":{
         "^/j": "/j"
       }
