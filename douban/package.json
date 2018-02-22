@@ -33,7 +33,6 @@
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
-    "qs": "^6.5.1",
     "raf": "3.4.0",
     "react": "^16.2.0",
     "react-dev-utils": "^5.0.0",
@@ -107,7 +106,7 @@
     "/v2": {
       "target": "https://api.douban.com",
       "changeOrigin": true,
-      "pathRewrite":{
+      "pathRewrite": {
         "^/v2": "/v2"
       }
     },
@@ -115,7 +114,7 @@
       "target": "https://movie.douban.com",
       "changeOrigin": true,
       "secure": false,
-      "pathRewrite":{
+      "pathRewrite": {
         "^/j": "/j"
       }
     }

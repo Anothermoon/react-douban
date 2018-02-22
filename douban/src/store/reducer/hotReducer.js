@@ -1,4 +1,9 @@
-import { HOT_MOVIE_REQUEST, HOT_MOVIE_RESPONCE, HOT_MOVIE_ERROR, HOT_MOVIE_REFRESH } from './../actions/hotActions'
+import {
+    HOT_MOVIE_REQUEST,
+    HOT_MOVIE_RESPONCE,
+    HOT_MOVIE_ERROR,
+    HOT_MOVIE_REFRESH
+} from './../actions/hotActions'
 
 /**
  * isReq 是否正在请求
