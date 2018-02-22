@@ -7,6 +7,7 @@ class ChipList extends Component {
      * 删除标签
      */
     handleDeleteTags = (key) => {
+        if (key === '全部形式' || key === '全部类型' || key === '全部地区') return
         this.props.onTagsDelete(key)
     }
 

@@ -8,6 +8,7 @@ import { base } from './../../public/js/base'
 import * as conditionsActions from './../../store/actions/conditionsActions'
 import ChipList from './../../component/ChipList/ChipList'
 import ConditionsSearchList from './../../component/ConditionsSearchList/ConditionsSearchList'
+import RaisedButton from 'material-ui/RaisedButton'
 
 function mapStateToProps (state) {
     return {
@@ -37,6 +38,18 @@ class ConditionsSearch extends Component {
     }
 
     /**
+     * 下一页
+     */
+    handleNextPageClick = () => {
+        const { items, tagsStr } = this.props.termList
+        this.props.termRefresh()
+        this.getMovie({
+            start: items.length,
+            tags: tagsStr
+        })
+    }
+
+    /**
      * 获取电影数据 
      */
     getMovie = (params) => {
@@ -62,7 +75,7 @@ class ConditionsSearch extends Component {
 
     render () {
         const { form, type, region } = base
-        const { tags, isReq, errMsg, items } = this.props.termList
+        const { tags, isReq, errMsg, items, currentItemLength } = this.props.termList
         console.log(this.props.termList)
         return (
             <section className={style['conditions-search-wrapper']}>
@@ -108,6 +121,14 @@ class ConditionsSearch extends Component {
                     message={errMsg}
                     autoHideDuration={3000}
                 />
+                {
+                    currentItemLength >= 20 && (
+                        <RaisedButton
+                            onClick={this.handleNextPageClick}
+                            label="more"
+                            fullWidth={true} />
+                    )
+                }
             </section>
         )
     }
