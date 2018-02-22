@@ -8,7 +8,7 @@ class TypeList extends Component {
     }
 
     render () {
-        const { list, tags, type } = this.props
+        const { list, tags } = this.props
         return (
             <ul className={style['type-list']} style={{
                 width: `${list.length * 64}px`

@@ -25,7 +25,7 @@ class ConditionsSearchList extends Component {
                                 title={item.title}
                                 subtitle={<span className={style['score']}><b>{item.rate}</b></span>}
                             >
-                                <img src={item.image} width="160" height="237" />
+                                <img src={item.image} width="160" height="237" alt="" />
                             </GridTile>
                         )
                     })

@@ -1,0 +1,44 @@
+.detail-wrapper {
+    width: 100%;
+    height: auto;
+    padding-top: 64px;
+}
+
+.detail-background {
+    filter: blur(5px);
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 30px 20px 30px;
+    box-sizing: border-box;
+}
+
+.detail-header-image {
+    margin-top: -50px;
+    z-index: 100;
+}
+
+.detail-header-text {
+    margin-left: 25px;
+}
+
+.detail-header-text h4 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.detail-header-text p {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.detail-header-summary {
+    line-height: 18px !important; 
+}

@@ -9,7 +9,7 @@ export const DETAIL_CLOSE = 'DETAIL_CLOSE'
 export const DETAIL_REFRESH = 'DETAIL_REFRESH'
 
 export const detailRequest = makeActionCreator(DETAIL_REQUEST)
-export const detailResponce = makeActionCreator(DETAIL_RESPONCE)
+export const detailResponce = makeActionCreator(DETAIL_RESPONCE, 'res')
 export const detailError = makeActionCreator(DETAIL_ERROR, 'err')
 export const detailClose = makeActionCreator(DETAIL_CLOSE)
 export const detailRefresh = makeActionCreator(DETAIL_REFRESH)
@@ -23,7 +23,6 @@ function cacheDetail (state) {
     } else {
         return movieDetail.isOverdue
     }
-    return true
 }
 
 export function getDetail (id) {
@@ -31,9 +30,24 @@ export function getDetail (id) {
         if (cacheDetail(getState())) {
             dispatch(detailRequest())
             return getMovieDetailAjax(id).then(res => {
-                console.log(res)
+                let detail = new Detail({
+                    id: res.id,
+                    title: res.title,
+                    year: res.year,
+                    casts: res.casts,
+                    genres: res.genres,
+                    images: res.images,
+                    rating: res.rating,
+                    aka: res.aka,
+                    countries: res.countries,
+                    summary: res.summary
+                })
+                dispatch(detailResponce({
+                    id: res.id,
+                    detail
+                }))
             }).catch(err => {
-                dispatch(detailError(err))
+                dispatch(detailError('请求失败'))
             })
         } else {
             return Promise.resolve()

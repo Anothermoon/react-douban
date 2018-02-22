@@ -10,8 +10,18 @@ function movieDetail (state = {
     isReq: false,
     isOverdue: true,
     id: undefined,
-    detail: {},
-    evaluate: [],
+    detail: {
+        title: '',
+        images: {},
+        aka: [],
+        casts: [],
+        countries: [],
+        genres: [],
+        id: undefined,
+        rating: {},
+        summary: '',
+        year: ''
+    },
     errMsg: ''
 }, action) {
     switch (action.type) {
@@ -21,14 +31,13 @@ function movieDetail (state = {
                 isReq: true
             }
         case DETAIL_RESPONCE:
-            const { id, detail, evaluate } = action.res
+            const { id, detail } = action.res
             return {
                 ...state,
                 isReq: false,
                 isOverdue: false,
                 id,
                 detail,
-                evaluate,
                 errMsg: ''
             }
         case DETAIL_ERROR:
@@ -42,8 +51,18 @@ function movieDetail (state = {
                 isReq: false,
                 isOverdue: true,
                 id: undefined,
-                detail: {},
-                evaluate: [],
+                detail: {
+                    title: '',
+                    images: {},
+                    aka: [],
+                    casts: [],
+                    countries: [],
+                    genres: [],
+                    id: undefined,
+                    rating: {},
+                    summary: '',
+                    year: ''
+                },
                 errMsg: ''
             }
         case DETAIL_REFRESH:

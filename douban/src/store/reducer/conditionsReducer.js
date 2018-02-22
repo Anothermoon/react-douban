@@ -56,7 +56,7 @@ function termList (state = {
                 start,
                 errMsg: '',
                 currentItemLength: items.length,
-                items: start == 0 ? [...items] : [...state.items, ...items]
+                items: start === 0 ? [...items] : [...state.items, ...items]
             }
         case TERM_ERROR:
             let { errMsg } = action.err
