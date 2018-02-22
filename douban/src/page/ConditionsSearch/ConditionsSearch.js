@@ -76,7 +76,6 @@ class ConditionsSearch extends Component {
     render () {
         const { form, type, region } = base
         const { tags, isReq, errMsg, items, currentItemLength } = this.props.termList
-        console.log(this.props.termList)
         return (
             <section className={style['conditions-search-wrapper']}>
                 <div className={style['type-list-wrapper']}>
